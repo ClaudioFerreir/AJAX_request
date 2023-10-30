@@ -15,21 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return response.json();
     })
     .then(function (json) {
-      const avatar = json.avatar_url;
-      const name = json.name;
-      const username = json.login;
-      const repositorios = json.public_repos;
-      const seguidores = json.followers;
-      const seguindo = json.following;
-      const link = json.html_url;
-
-      avatarPlace.setAttribute('src', avatar);
-      namePlace.textContent = name;
-      usernamePlace.textContent = username;
-      repositoriosPlace.textContent = repositorios;
-      seguidoresPlace.textContent = seguidores;
-      seguindoPlace.textContent = seguindo;
-      linkPlace.setAttribute('href', link);
+      avatarPlace.setAttribute('src', json.avatar_url);
+      namePlace.textContent = json.name;
+      usernamePlace.textContent = json.login;
+      repositoriosPlace.textContent = json.public_repos;
+      seguidoresPlace.textContent = json.followers;
+      seguindoPlace.textContent = json.following;
+      linkPlace.setAttribute('href', json.html_url);
     })
     .catch(function(error) {
       alert('Ocorreu um erro na requisição da API');
